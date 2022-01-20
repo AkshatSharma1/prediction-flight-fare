@@ -16,7 +16,7 @@ def mainScreen():
     return render_template('index.html')
 
 
-@my_app.route('/predict', methods=["GET", "POST"])
+@my_app.route('/predict', methods=["POST"])
 def predict():
     if request.method == "POST":
 
