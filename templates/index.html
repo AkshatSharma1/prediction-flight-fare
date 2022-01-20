@@ -34,7 +34,7 @@
             <!-- Form input -->
 
             <div class="row">
-                <form action="{{url_for('predict')}}" method="post" class="col s12">
+                <form action="/predict" method="post" class="col s12">
                     <div class="row">
                         <div class="input-field col s4">
 
@@ -66,16 +66,16 @@
                         </div>
 
                         <div class="input-field col s4">
-                            <label for="date" class="labels"><b>Date and Departure Time</b></label>
+                            <label for="Depa-time" class="labels"><b>Date and Departure Time</b></label>
                             <br>
-                            <input id="Departure" name="Date" type="datetime-local" class="validate" required="required">
+                            <input id="Depa_time" name="Depa_time" type="datetime-local" class="validate" required="required">
 
                         </div>
 
                         <div class="input-field col s4">
-                            <label for="date" class="labels"><b>Date and Arrival Time</b></label>
+                            <label for="Arrival" class="labels"><b>Date and Arrival Time</b></label>
                             <br>
-                            <input id="Arrival" name="Date" type="datetime-local" class="validate" required="required">
+                            <input id="Arrival" name="Arrival" type="datetime-local" class="validate" required="required">
 
                         </div>
 
@@ -97,7 +97,7 @@
                         <div class="input-field col s4">
                             <label for="airline"><b>Which Airline would you like to travel from?</b></label>
                             <br>
-                          <input list="airline_list" placeholder="Airline Selected" name="Airline" id="airline" type="text" class="validate" required="required">
+                          <input list="airline_list" placeholder="Airline Selected" name="airline" id="airline" type="text" class="validate" required="required">
                           <datalist id="airline_list">
                             <option value="Jet Airways"/>
                             <option value="IndiGo"/>
@@ -124,11 +124,11 @@
                 </form>
             </div>
             <hr>
-            {{prediction_val}}
+            <h4>{{prediction_val}}</h4>
             <hr>
         </div>
     </div>
-    <script src="./beauty/js/materialize.js"></script>
+    <script src="./static/js/materialize.js"></script>
 </body>
 
 </html>

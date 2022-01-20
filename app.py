@@ -16,16 +16,15 @@ def mainScreen():
     return render_template('index.html')
 
 
-@my_app.route('/predict', methods=["GET","POST"])
+@my_app.route("/predict", methods = ["GET","POST"])
 def predict():
     if request.method == "POST":
 
         # Date_of_Journey
-        date_dep = request.form["Departure"]
-        Journey_day = int(pd.to_datetime(
-            date_dep, format="%Y-%m-%dT%H:%M").day)
-        Journey_month = int(pd.to_datetime(
-            date_dep, format="%Y-%m-%dT%H:%M").month)
+        date_dep = request.form.get("Depa_time")
+        print(date_dep)
+        Journey_day = int(pd.to_datetime(date_dep, format="%Y-%m-%dT%H:%M").day)
+        Journey_month = int(pd.to_datetime(date_dep, format="%Y-%m-%dT%H:%M").month)
 
         # Departure
         Dep_hr = int(pd.to_datetime(date_dep, format="%Y-%m-%dT%H:%M").hour)
