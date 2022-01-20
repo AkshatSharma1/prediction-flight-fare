@@ -16,12 +16,12 @@ def mainScreen():
     return render_template('index.html')
 
 
-@my_app.route('/predict', methods=["POST"])
+@my_app.route('/predict', methods=["GET","POST"])
 def predict():
     if request.method == "POST":
 
         # Date_of_Journey
-        date_dep = request.form["Dep_Time"]
+        date_dep = request.form["Departure"]
         Journey_day = int(pd.to_datetime(
             date_dep, format="%Y-%m-%dT%H:%M").day)
         Journey_month = int(pd.to_datetime(
@@ -32,7 +32,7 @@ def predict():
         Dep_min = int(pd.to_datetime(date_dep, format="%Y-%m-%dT%H:%M").minute)
 
         # Arrival
-        date_arr = request.form["Arrival_Time"]
+        date_arr = request.form["Arrival"]
         Arr_hr = int(pd.to_datetime(date_arr, format="%Y-%m-%dT%H:%M").hour)
         Arr_min = int(pd.to_datetime(date_arr, format="%Y-%m-%dT%H:%M").minute)
 
@@ -41,7 +41,7 @@ def predict():
         dur_min = abs(Arr_min - Dep_min)
 
         # Total Stops
-        Total_stops = int(request.form["stops"])
+        Total_stops = int(request.form["Stops"])
 
         # Airline
         # AIR ASIA = 0 (not in column)
