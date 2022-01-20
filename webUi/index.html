@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flight Fare Prediction Ml</title>
+
+    <!-- materialize css -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+    <link type="text/css" rel="stylesheet" href="./beauty/css/materialize.css" media="screen,projection" />
+
+    <link href="./beauty/css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+</head>
+
+<body>
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo center">Ease My Flights</a>
+        </div>
+    </nav>
+    <div class="section no-pad-bot">
+        <div class="container">
+            <!-- <br><br> -->
+            <h1 class="center red-text text-darken-1 header">
+                Flight Fare Prediction Web-App
+            </h1>
+
+            <div class="row center">
+                <h5 class="header col s12 bold">Predict Fare Flights with Ease</h5>
+            </div>
+            <!-- Form input -->
+
+            <div class="row">
+                <form action="/predict" method="post" class="col s12">
+                    <div class="row">
+                        <div class="input-field col s4">
+
+                            <label for="Source" class="labels"><b>Source</b></label>
+                            <br />
+                            <input list="Source_list" placeholder="Source City" name="Source" id="Source" type="text"
+                                class="validate" required="required" />
+                            <datalist id="Source_list">
+                                <option value="Delhi" />
+                                <option value="Kolkata" />
+                                <option value="Mumbai" />
+                                <option value="Chennai" />
+                                <option value="Banglore" />
+                            </datalist>
+                        </div>
+                        <div class="input-field col s4">
+                            <label for="Destination" class="labels"><b>Destination</b></label>
+                            <br />
+                            <input list="Destination_list" placeholder="Source City" name="Destination" id="Destination"
+                                type="text" class="validate" required="required" />
+                            <datalist id="Destination_list">
+                                <option value="Delhi" />
+                                <option value="Kolkata" />
+                                <option value="Cochin" />
+                                <option value="Hyderabad" />
+                                <option value="Banglore" />
+
+                            </datalist>
+                        </div>
+
+                        <div class="input-field col s4">
+                            <label for="date" class="labels"><b>Date and Departure Time</b></label>
+                            <br>
+                            <input id="Departure" name="Date" type="datetime-local" class="validate" required="required">
+
+                        </div>
+
+                        <div class="input-field col s4">
+                            <label for="date" class="labels"><b>Date and Arrival Time</b></label>
+                            <br>
+                            <input id="Arrival" name="Date" type="datetime-local" class="validate" required="required">
+
+                        </div>
+
+                        <div class="input-field col s4">
+                            <label for="Stops"><b>Total Stops</b></label>
+                            <br>
+                            <input list="stop_list" placeholder="Eg. 0 means Non-Stop" name="Stops" id="Stops"
+                                type="text" class="validate" required="required">
+                            <datalist id="stop_list">
+                                <option value="0">Non-Stop</option>
+                                <option value="1" />
+                                <option value="2" />
+                                <option value="3" />
+                                <option value="4" />
+
+                            </datalist>
+                        </div>
+
+                        <div class="input-field col s4">
+                            <label for="airline"><b>Which Airline would you like to travel from?</b></label>
+                            <br>
+                          <input list="airline_list" placeholder="Airline Selected" name="Airline" id="airline" type="text" class="validate" required="required">
+                          <datalist id="airline_list">
+                            <option value="Jet Airways"/>
+                            <option value="IndiGo"/>
+                            <option value="Air India"/>
+                            <option value="Vistara Premium economy"/>
+                            <option value="Trujet"/>
+                            <option value="Multiple carriers"/>
+                            <option value="SpiceJet"/>
+                            <option value="Vistara"/>
+                            <option value="Air Asia"/>
+                            <option value="GoAir"/>
+                            <option value="Multiple carriers Premium economy"/>
+                            <option value="Jet Airways Business"/>
+                            
+                            </datalist> 
+                
+                        </div>
+                    </div>
+
+                    <!-- Button element -->
+                    <div class="row center">
+                        <button type="submit" class="btn-large waves-effect waves-light cyan"><i class="material-icons left">airplanemode_active</i>Predict Fare</button>
+                    </div>
+                </form>
+            </div>
+            <hr>
+            {{prediction_val}}
+            <hr>
+        </div>
+    </div>
+    <script src="./beauty/js/materialize.js"></script>
+</body>
+
+</html>
